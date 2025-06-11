@@ -45,6 +45,7 @@ public class ArbolAVL {
         // Actualizar tabla desde recorrido InOrden
         return recorrerInOrden();
     }
+    
 
     private DefaultTableModel crearModeloTabla() {
         DefaultTableModel modelo = new DefaultTableModel();

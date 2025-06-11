@@ -50,7 +50,7 @@ public class ListaMultasDoble {
 
                 File archivo = new File(carpeta, departamento + "_multas.txt");
 
-                try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo,true))) {
                     NodoMulta temp = cabeza;
                     while (temp != null) {
                         if (temp.departamento.equals(departamento)) {
