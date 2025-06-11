@@ -46,6 +46,37 @@ public class ArbolAVL {
         return recorrerInOrden();
     }
     
+    public void guardarVehiculosEnArchivos(String rutaBase) {
+    guardarVehiculosRec(raiz, rutaBase);
+}
+
+private void guardarVehiculosRec(NodoAVL nodo, String rutaBase) {
+    if (nodo != null) {
+        guardarVehiculosRec(nodo.izquierdo, rutaBase);
+
+        Vehiculo v = nodo.vehiculo;
+        String nombreArchivo = v.getDepartamento() + "_vehiculos.txt";
+        File archivo = new File(rutaBase + File.separator + v.getDepartamento(), nombreArchivo);
+
+        // Crear carpeta si no existe
+        archivo.getParentFile().mkdirs();
+
+        try (FileWriter fw = new FileWriter(archivo, true);  // true = agregar sin borrar
+             BufferedWriter bw = new BufferedWriter(fw)) {
+            String linea = String.join(",", v.getPlaca(), v.getDpi(), v.getNombre(),
+                    v.getMarca(), v.getModelo(), String.valueOf(v.getAnio()),
+                    String.valueOf(v.getMultas()), String.valueOf(v.getTraspasos()));
+            bw.write(linea);
+            bw.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        guardarVehiculosRec(nodo.derecho, rutaBase);
+    }
+}
+
+    
 
     private DefaultTableModel crearModeloTabla() {
         DefaultTableModel modelo = new DefaultTableModel();

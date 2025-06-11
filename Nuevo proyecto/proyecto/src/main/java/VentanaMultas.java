@@ -125,6 +125,7 @@ if (nodo != null && nodo.vehiculo != null) {
 
     // Guardar multas actualizadas en archivos
     vehiculo.getListaMultas().guardarMultasEnArchivosExistentes("C:\\Users\\Ixtamer\\Desktop\\archivo proyecto");
+    ControladorSistema.arbolVehiculos.guardarVehiculosEnArchivos("C:\\Users\\Ixtamer\\Desktop\\archivo proyecto");
 
     // Actualizar tabla en ventana principal
     ventanaPrincipal.actualizarTablaVehiculos();
