@@ -9,5 +9,6 @@
  */
 public class ControladorSistema {
      public static ArbolAVL arbolVehiculos = new ArbolAVL();
+     public static ArbolABB arbolesbb = new ArbolABB();
     
 }
