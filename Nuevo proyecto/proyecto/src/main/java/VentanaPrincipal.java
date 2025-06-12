@@ -32,7 +32,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     DefaultTableModel modelo = ControladorSistema.arbolVehiculos.recorrerInOrden();
     jTable1.setModel(modelo);
 }
-
+    public void actualizarTablaVehiculosbb() {
+    DefaultTableModel modelo1 = ControladorSistema.arbolesbb.recorrerInOrden();
+    jTable2.setModel(modelo1);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,6 +59,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -158,6 +162,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 480, -1, -1));
 
+        jButton9.setText("jButton9");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 310, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -214,6 +226,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jTable2.setModel(ControladorSistema.arbolesbb.recorrerPreOrden());
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+         
+        String ruta = "C:\\Users\\Ixtamer\\Desktop\\archivo proyecto";  // ← CAMBIA esto a tu ruta real
+
+    DefaultTableModel modelo1 = ControladorSistema.arbolesbb.cargarVehiculosDesdeCarpetas(ruta);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -258,6 +277,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

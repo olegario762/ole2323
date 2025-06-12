@@ -101,6 +101,7 @@ public class VentanaTraspaso extends javax.swing.JFrame {
 
 // Buscar nodo con esa placa
         NodoAVL nodo = ControladorSistema.arbolVehiculos.buscar(plc);
+        NodoABB nodoABB = ControladorSistema.arbolesbb.buscar(plc);
 
         if (nodo != null && nodo.vehiculo != null) {
             Vehiculo vehiculo = nodo.vehiculo;

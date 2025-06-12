@@ -110,32 +110,33 @@ public class VentanaMultas extends javax.swing.JFrame {
     String fch = fecha.getText().trim();
     String desc = descripcion.getText().trim();
     double mnt = Double.parseDouble(monto.getText().trim());
+    
+    NodoAVL nodoAVL = ControladorSistema.arbolVehiculos.buscar(plc);
+    NodoABB nodoABB = ControladorSistema.arbolesbb.buscar(plc);
 
-    // Buscar nodo con esa placa
-    NodoAVL nodo = ControladorSistema.arbolVehiculos.buscar(plc);
+        Vehiculo vehiculo = null;
+        if (nodoAVL != null) vehiculo = nodoAVL.vehiculo;
+        else if (nodoABB != null) vehiculo = nodoABB.vehiculo;
 
-if (nodo != null && nodo.vehiculo != null) {
-    Vehiculo vehiculo = nodo.vehiculo;
+        if (vehiculo != null) {
+            vehiculo.getListaMultas().agregarMulta(dep, plc, fch, desc, mnt);
+            vehiculo.setMultas(vehiculo.getMultas() + 1);
 
-    // Agregar la multa
-    vehiculo.getListaMultas().agregarMulta(dep, plc, fch, desc, mnt);
+            // Guardar solo una vez
+            vehiculo.getListaMultas().guardarMultasEnArchivosExistentes("C:\\Users\\Ixtamer\\Desktop\\archivo proyecto");
+            ControladorSistema.arbolVehiculos.guardarVehiculosEnArchivos("C:\\Users\\Ixtamer\\Desktop\\archivo proyecto");
 
-    // Aumentar contador de multas en el objeto Vehiculo
-    vehiculo.setMultas(vehiculo.getMultas() + 1);
+            ventanaPrincipal.actualizarTablaVehiculos();
+            ventanaPrincipal.actualizarTablaVehiculosbb();
+            ventanaPrincipal.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Vehículo no encontrado.");
+        }
 
-    // Guardar multas actualizadas en archivos
-    vehiculo.getListaMultas().guardarMultasEnArchivosExistentes("C:\\Users\\Ixtamer\\Desktop\\archivo proyecto");
-    ControladorSistema.arbolVehiculos.guardarVehiculosEnArchivos("C:\\Users\\Ixtamer\\Desktop\\archivo proyecto");
 
-    // Actualizar tabla en ventana principal
-    ventanaPrincipal.actualizarTablaVehiculos();
-
-    // Regresar a la ventana principal
-    ventanaPrincipal.setVisible(true);
-    this.dispose();
-} else {
-    JOptionPane.showMessageDialog(this, "Vehículo no encontrado.");
-}
+   
+    
 
 
 
