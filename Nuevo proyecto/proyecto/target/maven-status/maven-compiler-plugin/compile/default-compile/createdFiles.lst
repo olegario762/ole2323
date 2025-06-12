@@ -1,12 +1,16 @@
 ArbolAVL.class
 NodoTraspaso.class
+VentanaPrincipal$6.class
+VentanaTraspaso$1.class
 VentanaMultas$2.class
 VentanaMultas.class
 VentanaPrincipal$5.class
+VentanaTraspaso$2.class
 ListaTraspasosCircular.class
 VentanaPrincipal$1.class
 ControladorSistema.class
 VentanaMultas$1.class
+VentanaTraspaso.class
 ListaMultasDoble.class
 NodoMulta.class
 VentanaPrincipal$4.class

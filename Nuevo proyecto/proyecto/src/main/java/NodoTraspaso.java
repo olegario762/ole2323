@@ -8,7 +8,14 @@
  * @author Ixtamer
  */
 public class NodoTraspaso {
-    String placa, dpiAnterior, nombreAnterior, fecha, dpiNuevo, nombreNuevo, departamento;
+    String placa;
+    String dpiAnterior;
+    String nombreAnterior;
+    String fecha;
+    String dpiNuevo;
+    String nombreNuevo;
+    String departamento;
+
     NodoTraspaso siguiente;
 
     public NodoTraspaso(String placa, String dpiAnterior, String nombreAnterior, String fecha,
@@ -20,13 +27,12 @@ public class NodoTraspaso {
         this.dpiNuevo = dpiNuevo;
         this.nombreNuevo = nombreNuevo;
         this.departamento = departamento;
+        this.siguiente = null;
     }
 
     @Override
     public String toString() {
-        return placa + "," + dpiAnterior + "," + nombreAnterior + "," + fecha + "," + dpiNuevo + "," + nombreNuevo + "," + departamento;
+        return placa + "," + dpiAnterior + "," + nombreAnterior + "," + fecha + "," +
+               dpiNuevo + "," + nombreNuevo + "," + departamento;
     }
-
-    
-    
 }

@@ -64,7 +64,7 @@ public class ListaTraspasosCircular {
 
                 File archivo = new File(carpeta, departamento + "_traspasos.txt");
 
-                try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo, true))) {  // Append = true
                     NodoTraspaso aux = inicio;
                     do {
                         if (aux.departamento.equals(departamento)) {
